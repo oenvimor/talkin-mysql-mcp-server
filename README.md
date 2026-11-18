@@ -1,26 +1,25 @@
 # Talkin MySQL MCP Server
 
-本地 Python MCP 服务，供本机 Codex 查询 Talkin 的测试库和线上只读库。服务通过 `config.yaml` 连接数据库，并通过 stdio 提供工具调用。兼容 Python 3.9+。
+本地 Go MCP 服务，供本机 Codex 查询 Talkin 的测试库和线上只读库。服务通过 `config.yaml` 连接数据库，并通过 stdio 提供工具调用。使用 Go 官方 MCP SDK。
 
 ## 配置
 
 编辑目录下的 `config.yaml`，填写两套数据库的 host、port、user、password 和 database。该文件已加入 `.gitignore`。线上连接应使用数据库侧配置为只读权限的账号；MCP 服务不会额外限制 SQL 类型。也可以设置 `TALKIN_MCP_CONFIG` 指向其他 YAML 文件。
 
-## 安装和启动
+## 构建和启动
 
 ```sh
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
-python main.py
+go mod download
+go build -o talkin-mysql-mcp-server .
+./talkin-mysql-mcp-server
 ```
 
 Codex MCP 配置示例（将路径替换为本目录的绝对路径）：
 
 ```toml
 [mcp_servers.talkin_mysql]
-command = "/absolute/path/to/talkin-mysql-mcp-server/.venv/bin/python"
-args = ["/absolute/path/to/talkin-mysql-mcp-server/main.py"]
+command = "/absolute/path/to/talkin-mysql-mcp-server/talkin-mysql-mcp-server"
+args = []
 cwd = "/absolute/path/to/talkin-mysql-mcp-server"
 ```
 
