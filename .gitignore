@@ -28,7 +28,10 @@ go.work.sum
 
 # Local config and environment files
 config.yaml
+internal/config/config.yaml
 .env
+logs/
+/bin/
 
 # Editor/IDE and OS files
 # .idea/
