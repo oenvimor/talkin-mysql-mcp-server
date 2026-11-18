@@ -1,0 +1,13 @@
+databases:
+  test:
+    host: test-db.example.com
+    port: 3306
+    user: test_user
+    password: change_me
+    database: talkin_test
+  prod_readonly:
+    host: readonly-db.example.com
+    port: 3306
+    user: readonly_user
+    password: change_me
+    database: talkin

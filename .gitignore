@@ -8,10 +8,8 @@
 *.so
 *.dylib
 
-# Test binary, built with `go test -c`
+# Test binary and coverage artifacts
 *.test
-
-# Code coverage profiles and other test artifacts
 *.out
 coverage.html
 coverage.txt
@@ -19,16 +17,20 @@ coverage.xml
 *.coverprofile
 profile.cov
 
-# Dependency directories (remove the comment below to include it)
+# Dependency directories
 # vendor/
+node_modules/
+dist/
 
-# Go workspace file
+# Go workspace files
 go.work
 go.work.sum
 
-# env file
+# Local config and environment files
+config.yaml
 .env
 
-# Editor/IDE
+# Editor/IDE and OS files
 # .idea/
 # .vscode/
+.DS_Store
